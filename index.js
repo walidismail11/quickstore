@@ -12,7 +12,7 @@ const path = require("path")
 const cors = require("cors");
 global.TextEncoder = require("util").TextEncoder;
 global.TextDecoder = require("util").TextDecoder;
-
+const whitelist = ["https://quickstoreapp.herokuapp.com"]
 dotenv.config();
 
 mongoose
@@ -24,8 +24,17 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb+srv://quickshop:quickshop15
   .catch((err) => {
     console.log(err);
   });
-
-app.use(cors());
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error("Not allowed by CORS"))
+    }
+  },
+  credentials: true,
+}
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
