@@ -4,6 +4,8 @@ import App from './App';
 import {Provider} from "react-redux" 
 import {store, persistor} from './redux/store';
 import {PersistGate} from "redux-persist/integration/react"
+global.TextEncoder = require("util").TextEncoder;
+global.TextDecoder = require("util").TextDecoder;
 
 ReactDOM.render(
   <Provider store={store}>

@@ -10,6 +10,8 @@ const orderRoute = require("./rootes/order");
 const stripeRoute = require("./rootes/stripe");
 const path = require("path")
 const cors = require("cors");
+global.TextEncoder = require("util").TextEncoder;
+global.TextDecoder = require("util").TextDecoder;
 
 dotenv.config();
 
