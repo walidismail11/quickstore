@@ -24,7 +24,12 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb+srv://quickshop:quickshop15
   .catch((err) => {
     console.log(err);
   });
-
+  
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+  });
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoute);
