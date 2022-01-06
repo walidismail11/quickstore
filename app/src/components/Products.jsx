@@ -20,8 +20,8 @@ const Products = ({ cat, filters, sort }) => {
       try {
         const res = await axios.get(
           cat
-            ? `https://quickstoreapp1.herokuapp.com/api/products?category=${cat.toLowerCase()}`
-            : "https://quickstoreapp1.herokuapp.com/api/products"
+            ? `https://quickstoreapp.herokuapp.com/api/products?category=${cat.toLowerCase()}`
+            : "https://quickstoreapp.herokuapp.com/api/products"
         );
         setProducts(res.data);
       } catch (err) {}

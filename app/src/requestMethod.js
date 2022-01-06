@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://quickstoreapp1.herokuapp.com/api/";
+const BASE_URL = "https://quickstoreapp.herokuapp.com/api/";
 
 const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
 const currentUser = user && JSON.parse(user).currentUser;
