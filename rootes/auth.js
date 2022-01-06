@@ -63,7 +63,7 @@ router.post("/login", async (req, res) => {
         res.status(200).json({...others, accessToken});
 
     }catch(err){
-        console.error(err.response.data)
+        console.log(err)
     }
 
 });
