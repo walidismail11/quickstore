@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb+srv://quickshop:quickshop15
   .catch((err) => {
     console.log(err);
   });
-  
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -41,9 +41,12 @@ app.use("/api/checkout", stripeRoute);
 
 app.use(express.static(path.join(__dirname, "/app/build")));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/app/build', 'index.html'));
-});
+if(process.env.NODE_ENV === 'production'){
+      const path  =  require('path');
+      app.get('/*',(req,res)=>{
+          res.sendfile(path.resolve(__dirname,'app','build','index.html'))
+      })
+  }
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("Backend server is running!");
