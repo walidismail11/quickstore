@@ -135,12 +135,12 @@ const Product = () => {
   const dispatch = useDispatch();
   
   useEffect(() => {
-    console.log(colors);
     const getProduct = async () => {
       try {
         const res = await publicRequest.get("/products/find/" + id);
         setProduct(res.data);
         const colors = product.color
+        console.log(colors);
       } catch {}
     };
     getProduct();
