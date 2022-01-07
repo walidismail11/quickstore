@@ -11,7 +11,7 @@ import { useNavigate } from "react-router";
 import StripeCheckout from "react-stripe-checkout";
 import { useDispatch } from "react-redux";
 import {Link} from "react-router-dom"
-
+import {resercart} from "../redux/reduxCart"
 
 const KEY = "pk_test_51K9C8qGfkBwtWWv6LjRN4MRd3CKTZ92khL6Ba5YZYBxa5uXFrX7RAqgftQfq1zgcNa8ySlE3ARZsIIQmPXHUrwBO00GOuqKjPn"
 const shipping = 5
@@ -172,7 +172,9 @@ const Cart = () => {
   const onToken = (token) => {
     setStripeToken(token);
   };
-
+  const handleClick =() => {
+    dispatch(resercart())
+  }
   useEffect(() => {
     const makeRequest = async () => {
       try {
@@ -254,7 +256,7 @@ const Cart = () => {
             </SummaryItem>
             <StripeCheckout
               name="Quick Shop"
-              image="https://avatars.githubusercontent.com/u/1486366?v=4"
+              image="https://cdn.pixabay.com/photo/2016/06/07/23/13/letter-1442861_960_720.png"
               billingAddress
               shippingAddress
               description={`Your total is $${cart.total}`}
@@ -262,7 +264,7 @@ const Cart = () => {
               token={onToken}
               stripeKey={KEY}
             >
-              <Button>CHECKOUT NOW</Button>
+              <Button onClick={() => handleClick()}>CHECKOUT NOW</Button>
             </StripeCheckout>
           </Summary>
         </Bottom>
