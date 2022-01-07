@@ -11,7 +11,7 @@ import { useNavigate } from "react-router";
 import StripeCheckout from "react-stripe-checkout";
 import { useDispatch } from "react-redux";
 import {Link} from "react-router-dom"
-import {resercart} from "../redux/reduxCart"
+import {resetcart} from "../redux/reduxCart"
 
 const KEY = "pk_test_51K9C8qGfkBwtWWv6LjRN4MRd3CKTZ92khL6Ba5YZYBxa5uXFrX7RAqgftQfq1zgcNa8ySlE3ARZsIIQmPXHUrwBO00GOuqKjPn"
 const shipping = 5
@@ -173,7 +173,7 @@ const Cart = () => {
     setStripeToken(token);
   };
   const handleClick =() => {
-    dispatch(resercart())
+    dispatch(resetcart())
   }
   useEffect(() => {
     const makeRequest = async () => {
