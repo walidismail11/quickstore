@@ -133,13 +133,14 @@ const Product = () => {
   const [color, setColor] = useState();
   const [size, setSize] = useState("S");
   const dispatch = useDispatch();
-  const colors = product.color
+  
   useEffect(() => {
     console.log(colors);
     const getProduct = async () => {
       try {
         const res = await publicRequest.get("/products/find/" + id);
         setProduct(res.data);
+        const colors = product.color
       } catch {}
     };
     getProduct();
