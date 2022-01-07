@@ -12,14 +12,12 @@ import { publicRequest } from "../requestMethod";
 import { useDispatch } from "react-redux";
 
 
-
 const Container = styled.div``;
 
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
-
-
+  ${mobile({ padding: "10px", flexDirection: "column" })}
 `;
 
 const ImgContainer = styled.div`
@@ -30,13 +28,13 @@ const Image = styled.img`
   width: 100%;
   height: 90vh;
   object-fit: cover;
-
+  ${mobile({ height: "40vh" })}
 `;
 
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0px 50px;
-
+  ${mobile({ padding: "10px" })}
 `;
 
 const Title = styled.h1`
@@ -57,7 +55,7 @@ const FilterContainer = styled.div`
   margin: 30px 0px;
   display: flex;
   justify-content: space-between;
-
+  ${mobile({ width: "100%" })}
 `;
 
 const Filter = styled.div`
@@ -74,7 +72,6 @@ const FilterColor = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: solid black;
   background-color: ${(props) => props.color};
   margin: 0px 5px;
   cursor: pointer;
@@ -92,8 +89,7 @@ const AddContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-
+  ${mobile({ width: "100%" })}
 `;
 
 const AmountContainer = styled.div`
@@ -119,7 +115,6 @@ const Button = styled.button`
   background-color: white;
   cursor: pointer;
   font-weight: 500;
-
   &:hover {
     background-color: #f8f4f4;
   }
@@ -131,9 +126,9 @@ const Product = () => {
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
-  const [size, setSize] = useState("S");
+  const [size, setSize] = useState("");
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -157,13 +152,10 @@ const Product = () => {
       addProduct({ ...product, quantity, color, size })
     );
   };
-
-
-   return (
-
+  return (
     <Container>
       <Navbar />
-      <Annoucement />
+      <Announcement />
       <Wrapper>
         <ImgContainer>
           <Image src={product.img} />
@@ -190,15 +182,15 @@ const Product = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove cursor="pointer" onClick={() => handleQuantity("dec")} />
+              <Remove onClick={() => handleQuantity("dec")} />
               <Amount>{quantity}</Amount>
-              <Add cursor="pointer" onClick={() => handleQuantity("inc")}/>
+              <Add onClick={() => handleQuantity("inc")} />
             </AmountContainer>
             <Button onClick={handleClick}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
-      <NewsLetter />
+      <Newsletter />
       <Footer />
     </Container>
   );
