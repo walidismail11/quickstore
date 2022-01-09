@@ -5,7 +5,7 @@ import { login } from "../redux/apiCalls";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { resetcart } from "../redux/reduxCart";
-
+import axios from "axios";
 
 const Container = styled.div`
   width: 100vw;
