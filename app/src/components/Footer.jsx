@@ -91,7 +91,7 @@ import {Link} from "react-router-dom"
           </Desc>
           <SocialContainer>
             <SocialIcon color="E4405F">
-              <Link to={{ pathname: "https://www.instagram.com/rundafashion/?utm_medium=copy_link"}} target={"_blank"} style={{textDecoration: "none" , color: "black"}}>
+              <Link to={{ pathname: "//www.instagram.com/rundafashion/?utm_medium=copy_link"}} target={"_blank"} style={{textDecoration: "none" , color: "black"}}>
               <Instagram />
               </Link>
             </SocialIcon>
