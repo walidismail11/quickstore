@@ -75,9 +75,24 @@ const Login = () => {
   const dispatch = useDispatch()
   let {isFetching, error} = useSelector(state => state.user)
   const handleClick = (e) => {
+    let bodyFormData = new FormData();
+    bodyFormData.set('username', username);
+    bodyFormData.set('password', password);
     e.preventDefault()
-
-    login(dispatch,{ username, password})
+    axios({
+      method: 'post',
+      url: '"https://quickstoreapp.herokuapp.com/api/auth/login',
+      data: bodyFormData,
+      config: { headers: {'Content-Type': 'multipart/form-data' }}
+      })
+      .then(function (response) {
+          //handle success
+          console.log(response);
+      })
+      .catch(function (response) {
+          //handle error
+          console.log(response);
+      });
     resetcart()
   }  
   return (
