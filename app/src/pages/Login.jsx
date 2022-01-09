@@ -81,7 +81,7 @@ const Login = () => {
     e.preventDefault()
     axios({
       method: 'post',
-      url: '"https://quickstoreapp.herokuapp.com/api/auth/login',
+      url: '/api/auth/login',
       data: bodyFormData,
       config: { headers: {'Content-Type': 'multipart/form-data' }}
       })
