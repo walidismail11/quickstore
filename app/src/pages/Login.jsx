@@ -5,7 +5,7 @@ import { login } from "../redux/apiCalls";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { resetcart } from "../redux/reduxCart";
-import axios from "axios";
+
 
 const Container = styled.div`
   width: 100vw;
@@ -70,29 +70,14 @@ const Label = styled.a`
 
 
 const Login = () => {
-  const [username, setUsername] = useState("")
+  const [user_name, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const dispatch = useDispatch()
   let {isFetching, error} = useSelector(state => state.user)
   const handleClick = (e) => {
-    let bodyFormData = new FormData();
-    bodyFormData.set('username', username);
-    bodyFormData.set('password', password);
     e.preventDefault()
-    axios({
-      method: 'post',
-      url: '/api/auth/login',
-      data: bodyFormData,
-      config: { headers: {'Content-Type': 'multipart/form-data' }}
-      })
-      .then(function (response) {
-          //handle success
-          console.log(response);
-      })
-      .catch(function (response) {
-          //handle error
-          console.log(response);
-      });
+
+    login(dispatch,{ user_name, password})
     resetcart()
   }  
   return (
