@@ -91,7 +91,7 @@ import {Link} from "react-router-dom"
           </Desc>
           <SocialContainer>
             <SocialIcon color="E4405F">
-              <Link to={"https://www.instagram.com/rundafashion/?utm_medium=copy_link"} style={{textDecoration: "none" , color: "black"}}>
+              <Link to={{ pathname: "https://www.instagram.com/rundafashion/?utm_medium=copy_link"}} target={"_blank"} style={{textDecoration: "none" , color: "black"}}>
               <Instagram />
               </Link>
             </SocialIcon>
@@ -104,7 +104,7 @@ import {Link} from "react-router-dom"
           <ContactItem>
           </ContactItem>
           <ContactItem>
-            <Phone style={{marginRight:"10px"}}/> +1 234 56 78
+            <Phone style={{marginRight:"10px"}}/>+ 961 71417545
           </ContactItem>
           <ContactItem>
             <MailOutline style={{marginRight:"10px"}} />Please send your feedback, comments, requests for technical support by email: walid.ismail@net.usj.edu.lb.
