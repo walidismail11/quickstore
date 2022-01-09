@@ -172,9 +172,7 @@ const Cart = () => {
   const onToken = (token) => {
     setStripeToken(token);
   };
-  const handleClick =() => {
-    dispatch(resetcart())
-  }
+
   useEffect(() => {
     const makeRequest = async () => {
       try {
@@ -182,6 +180,7 @@ const Cart = () => {
           tokenId: stripeToken.id,
           amount: 500,
         });
+        dispatch(resetcart())
         history("/success", {
           stripeData: res.data,
           products: cart, });
@@ -264,7 +263,7 @@ const Cart = () => {
               token={onToken}
               stripeKey={KEY}
             >
-              <Button onClick={() => handleClick()}>CHECKOUT NOW</Button>
+              <Button>CHECKOUT NOW</Button>
             </StripeCheckout>
           </Summary>
         </Bottom>

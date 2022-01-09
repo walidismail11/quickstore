@@ -1,14 +1,10 @@
 import {
-    Facebook,
     Instagram,
     MailOutline,
     Phone,
-    Pinterest,
-    Room,
-    Twitter,
   } from "@material-ui/icons";
 import styled from "styled-components";
-
+import {Link} from "react-router-dom"
   const Container = styled.div`
     display: flex;
 
@@ -91,38 +87,17 @@ import styled from "styled-components";
         <Left>
           <Logo>QUICK STORE</Logo>
           <Desc>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos molestias accusamus voluptatum magni sequi 
-            explicabo at natus eos? Non atque porro ab dicta, corrupti quaerat dolor voluptatum debitis sed asperiores.
+          If you are a copyright owner, or authorized on behalf of one, and you believe that the copyrighted work has been copied in a way that constitutes copyright infringement, please submit your claim via email to walid.ismail@net.usj.edu.lb, with the subject line: “Copyright Infringement” and include in your claim a detailed description of the alleged Infringement as detailed below, under “DMCA Notice and Procedure for Copyright Infringement Claims”
           </Desc>
           <SocialContainer>
-            <SocialIcon color="3B5999">
-              <Facebook />
-            </SocialIcon>
             <SocialIcon color="E4405F">
+              <Link to="https://www.instagram.com/rundafashion/?utm_medium=copy_link">
               <Instagram />
-            </SocialIcon>
-            <SocialIcon color="55ACEE">
-              <Twitter />
-            </SocialIcon>
-            <SocialIcon color="E60023">
-              <Pinterest />
+              </Link>
             </SocialIcon>
           </SocialContainer>
         </Left>
-        <Center>
-          <Title>Useful Links</Title>
-          <List>
-            <ListItem>Home</ListItem>
-            <ListItem>Cart</ListItem>
-            <ListItem>Man Fashion</ListItem>
-            <ListItem>Woman Fashion</ListItem>
-            <ListItem>Accessories</ListItem>
-            <ListItem>My Account</ListItem>
-            <ListItem>Order Tracking</ListItem>
-            <ListItem>Wishlist</ListItem>
-            <ListItem>Wishlist</ListItem>
-            <ListItem>Terms</ListItem>
-          </List>
+        <Center>  
         </Center>
         <Right>
           <Title>Contact</Title>
@@ -132,7 +107,7 @@ import styled from "styled-components";
             <Phone style={{marginRight:"10px"}}/> +1 234 56 78
           </ContactItem>
           <ContactItem>
-            <MailOutline style={{marginRight:"10px"}} /> contact@lama.dev
+            <MailOutline style={{marginRight:"10px"}} />Please send your feedback, comments, requests for technical support by email: walid.ismail@net.usj.edu.lb.
           </ContactItem>
           <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
         </Right>

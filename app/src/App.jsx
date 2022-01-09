@@ -18,6 +18,7 @@ import {persistor} from "./redux/store"
 const App = () => {
   const user = useSelector(state => state.user.currentUser)
 
+  
 
   persistor.purge()
 
