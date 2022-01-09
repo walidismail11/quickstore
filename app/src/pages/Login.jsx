@@ -70,14 +70,13 @@ const Label = styled.a`
 
 
 const Login = () => {
-  const [user_name, setUsername] = useState("")
+  const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const dispatch = useDispatch()
   let {isFetching, error} = useSelector(state => state.user)
   const handleClick = (e) => {
     e.preventDefault()
-
-    login(dispatch,{ user_name, password})
+    login(dispatch,{ username, password})
     resetcart()
   }  
   return (
